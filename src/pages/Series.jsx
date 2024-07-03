@@ -9,9 +9,9 @@ import {
   increment,
   lastPage,
 } from "../redux/slice/series";
-import ShowMore from "react-show-more";
 import { useNavigate } from "react-router-dom";
 import Loding from "../components/Loding";
+import ShowMoreText from "react-show-more-text";
 
 const Series = () => {
   const { loadingSeries, seriesData, pageNumber } = useSelector(
@@ -66,14 +66,15 @@ const Series = () => {
                   <div className="flex">
                     <span className="flex-2">OVERVIEW : </span>
                     <span className="flex-1">
-                      <ShowMore
+                      <ShowMoreText
                         lines={1}
                         more="Show more"
                         less="Show less"
-                        anchorClass="text-light-blue-400 underline decoration-1"
+                        anchorClass="text-light-blue-400 underline decoration-1 "
+                        className="cursor-pointer"
                       >
                         {series.overview}
-                      </ShowMore>
+                      </ShowMoreText>
                     </span>
                   </div>
                 </div>

@@ -4,21 +4,29 @@ import { Link, useNavigate, useParams } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
 import { MdOutlineStar } from "react-icons/md";
 import { FaArrowLeftLong } from "react-icons/fa6";
-import ShowMore from "react-show-more";
+import ShowMoreText from "react-show-more-text";
 import { useEffect } from "react";
+import Loding from "../components/Loding";
 
 const SeriesReviews = () => {
   const { seriesReview, loading } = useSelector((state) => state.seriesReview);
   const { seriesDetails } = useSelector((state) => state.seriesDetail);
   const { seriesId } = useParams();
 
-  console.log(seriesDetails);
   const dispatch = useDispatch();
   const navigate = useNavigate();
 
   useEffect(() => {
     dispatch(getSeriesReview(seriesId));
   }, [seriesId]);
+
+  if (loading) {
+    return (
+      <div>
+        <Loding />
+      </div>
+    );
+  }
 
   return (
     <div className="mt-[4.5em]">
@@ -79,14 +87,15 @@ const SeriesReviews = () => {
                 <div className="mt-4 text-blue-700 text-2xl font-bold ">
                   Content :-
                 </div>
-                <ShowMore
+                <ShowMoreText
                   lines={2}
                   more="Show more"
                   less="Show less"
                   anchorClass="text-light-blue-400 underline decoration-1"
+                  className="cursor-pointer"
                 >
                   {series.content}
-                </ShowMore>
+                </ShowMoreText>
               </div>
             </div>
           ))}

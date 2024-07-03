@@ -1,7 +1,7 @@
 import React from "react";
 import { useSelector } from "react-redux";
 import { Link, useParams } from "react-router-dom";
-import ShowMore from "react-show-more";
+import ShowMoreText from "react-show-more-text";
 import Loding from "./Loding";
 
 const MovieReview = () => {
@@ -52,14 +52,15 @@ const MovieReview = () => {
                 <div className="mt-4 text-blue-700 text-2xl font-bold ">
                   Content :-
                 </div>
-                <ShowMore
+                <ShowMoreText
                   lines={2}
                   more="Show more"
                   less="Show less"
                   anchorClass="text-light-blue-400 underline decoration-1"
+                  className="cursor-pointer"
                 >
                   {movie.content}
-                </ShowMore>
+                </ShowMoreText>
               </div>
             </div>
           ))}

@@ -4,7 +4,8 @@ import { Link, useNavigate, useParams } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
 import { MdOutlineStar } from "react-icons/md";
 import { FaArrowLeftLong } from "react-icons/fa6";
-import ShowMore from "react-show-more";
+import ShowMoreText from "react-show-more-text";
+import Loding from "../components/Loding";
 
 const MovieReview = () => {
   const { movieReview, loading } = useSelector((state) => state.movieReview);
@@ -17,6 +18,13 @@ const MovieReview = () => {
     dispatch(getMovieReview(movieid));
   }, [movieid]);
 
+  if (loading) {
+    return (
+      <div>
+        <Loding />
+      </div>
+    );
+  }
   return (
     <div className="mt-[4.5em]">
       <div className="bg-black w-full mb-7">
@@ -76,14 +84,15 @@ const MovieReview = () => {
                 <div className="mt-4 text-blue-700 text-2xl font-bold ">
                   Content :-
                 </div>
-                <ShowMore
+                <ShowMoreText
                   lines={2}
                   more="Show more"
                   less="Show less"
                   anchorClass="text-light-blue-400 underline decoration-1"
+                  className="cursor-pointer"
                 >
                   {movie.content}
-                </ShowMore>
+                </ShowMoreText>
               </div>
             </div>
           ))}
