@@ -1,0 +1,8 @@
+@media screen and (max-width: 541px) {
+  .home-header {
+    flex-direction: column !important;
+  }
+  .sort-div {
+    flex-wrap: wrap;
+  }
+}

@@ -1,25 +1,35 @@
-import logo from './logo.svg';
-import './App.css';
+import React from "react";
+import { Route, Routes } from "react-router-dom";
+import HomePage from "./pages/HomePage";
+import Header from "./components/Header";
+import Footer from "./components/Footer";
+import Movies from "./pages/Movies";
+import Series from "./pages/Series";
+import NotFound from "./pages/NotFound";
+import ContactUs from "./pages/ContactUs";
+import MovieDetails from "./pages/MovieDetails";
+import SeriesDetail from "./pages/SeriesDetail";
+import MovieReview from "./pages/MovieReview";
+import SeriesReviews from "./pages/SeriesReviews";
 
-function App() {
+const App = () => {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div>
+      <Header />
+      <Routes>
+        <Route path="/" element={<HomePage />} />
+        <Route path="/movies" element={<Movies />} />
+        <Route path="/series" element={<Series />} />
+        <Route path="/contactus" element={<ContactUs />} />
+        <Route path="/movie/:movieid" element={<MovieDetails />} />
+        <Route path="/series/:seriesid" element={<SeriesDetail />} />
+        <Route path="/movie/:movieid/reviews" element={<MovieReview />} />
+        <Route path="/series/:seriesid/reviews" element={<SeriesReviews />} />
+        <Route path="*" element={<NotFound />} />
+      </Routes>
+      <Footer />
     </div>
   );
-}
+};
 
 export default App;
