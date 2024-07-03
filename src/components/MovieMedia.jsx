@@ -52,8 +52,8 @@ const MovieMedia = () => {
         <span
           className={
             video
-              ? "text-purple-600 border-b-2 border-b-purple-600 text-xl me-5"
-              : "text-white text-xl me-5"
+              ? "text-purple-600 border-b-2 border-b-purple-600  me-4 "
+              : "text-white  me-4 "
           }
         >
           <Link onClick={vidoeClick}>
@@ -63,8 +63,8 @@ const MovieMedia = () => {
         <span
           className={
             backdrops
-              ? "text-purple-600 border-b-2 border-b-purple-600 text-xl me-5"
-              : "text-white text-xl me-5"
+              ? "text-purple-600 border-b-2 border-b-purple-600  me-4 "
+              : "text-white me-4 "
           }
         >
           <Link onClick={backdropsClick}>
@@ -77,8 +77,8 @@ const MovieMedia = () => {
         <span
           className={
             posters
-              ? "text-purple-600 border-b-2 border-b-purple-600 text-xl me-5"
-              : "text-white text-xl me-5"
+              ? "text-purple-600 border-b-2 border-b-purple-600 "
+              : "text-white "
           }
         >
           <Link onClick={postersClick}>
