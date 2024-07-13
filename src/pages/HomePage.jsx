@@ -23,7 +23,7 @@ const HomePage = () => {
   return (
     <div>
       <HomeHeader />
-      <MoviesSlider loading={loadingMovies} moviesData={moviesData} />
+      <MoviesSlider loadingMovies={loadingMovies} moviesData={moviesData} />
       <SeriesSlider loadingSeries={loadingSeries} seriesData={seriesData} />
       <TopMovies moviesData={moviesData} />
       <TopSeries seriesData={seriesData} />

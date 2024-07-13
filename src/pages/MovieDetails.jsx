@@ -46,7 +46,7 @@ const MovieDetails = () => {
 
   const opts = {
     height: "450",
-    width: "550",
+    width: "425",
   };
 
   const onReady = (event) => {
@@ -119,11 +119,12 @@ const MovieDetails = () => {
         }}
       >
         {/* trailer */}
-        {showVideo && (
+        {showVideo &
+          (movieVideos.results && movieVideos.results.length != 0) && (
           <div
             className={
               showVideo
-                ? "absolute z-50 w-[100%] h-[100%] flex justify-center items-center bg-[rgba(0,0,0,.6)] "
+                ? "fixed z-50 w-[100%] h-[100%] flex justify-center items-center bg-[rgba(0,0,0,.6)] "
                 : "hidden"
             }
           >
@@ -279,7 +280,7 @@ const MovieDetails = () => {
       <div className="container m-auto flex lg:flex-col xl:flex-row md:flex-col sm:flex-col flex-col justify-between">
         <div>
           <MovieCast />
-          <MovieReview />
+          <MovieReview movieDetails={movieDetails} />
           <MovieMedia />
           <MovieRecommendations />
         </div>

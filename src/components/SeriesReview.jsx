@@ -4,7 +4,7 @@ import { Link, useParams } from "react-router-dom";
 import ShowMoreText from "react-show-more-text";
 import Loding from "./Loding";
 
-const SeriesReview = () => {
+const SeriesReview = ({ seriesDetails }) => {
   const { seriesReview, loading } = useSelector((state) => state.seriesReview);
   const { seriesid } = useParams();
 
@@ -16,7 +16,7 @@ const SeriesReview = () => {
     );
   }
   return (
-    <div className="mt-10">
+    <div className="mt-10 ms-2">
       <h1 className="text-2xl text-light-blue-300 mt-3"> Social</h1>
       <div className="text-purple-600 border-b-2 border-b-purple-600 w-[fit-content] border-spacing-2 my-5">
         Reviews({seriesReview.results && seriesReview.results.length})
@@ -65,13 +65,32 @@ const SeriesReview = () => {
             </div>
           ))}
       </div>
+
+      <div>
+        {seriesReview.results && seriesReview.results.length == 0 && (
+          <div
+            className="max-w-[60em] p-4 bg-black border-t-2 border-t-white flex sm:flex-col flex-col md:flex-row lg:flex-row items-center
+          gap-7 container m-auto"
+          >
+            <div>
+              We don't have any reviews for
+              <span className="text-blue-300 text-xl ms-1">
+                {seriesDetails.name}
+              </span>
+            </div>
+          </div>
+        )}
+      </div>
+
       <div className="mt-5">
-        <Link
-          className=" text-light-blue-300"
-          to={`/series/${seriesid}/reviews`}
-        >
-          Read All Reviews
-        </Link>
+        {seriesReview.results && seriesReview.results.length > 1 && (
+          <Link
+            className=" text-light-blue-300"
+            to={`/series/${seriesid}/reviews`}
+          >
+            Read All Reviews
+          </Link>
+        )}
       </div>
     </div>
   );

@@ -5,14 +5,23 @@ import { FaInstagram } from "react-icons/fa";
 import { MdHome } from "react-icons/md";
 import { Link } from "react-router-dom";
 import { useSelector } from "react-redux";
+import Loding from "./Loding";
 
 const AsideSeriesDetails = () => {
   const { extenalId } = useSelector((state) => state.seriesExternalId);
   const { loading, seriesDetails } = useSelector((state) => state.seriesDetail);
   const { seriesKeywords } = useSelector((state) => state.seriesKeywords);
 
+  if (loading) {
+    return (
+      <div>
+        <Loding />
+      </div>
+    );
+  }
+
   return (
-    <div className="mt-8 w-[19em] flex flex-col">
+    <div className="mt-8 xlg:w-[18em] lg:w-[14em] flex flex-col ms-3">
       <div className="flex justify-between w-[100%] text-2xl">
         <Link to={`https://www.facebook.com/${extenalId.facebook_id}`}>
           <FaFacebook className="text-light-blue-300 hover:text-blue-900" />

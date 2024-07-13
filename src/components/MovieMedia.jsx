@@ -46,7 +46,7 @@ const MovieMedia = () => {
     );
   }
   return (
-    <div className="mt-10">
+    <div className="mt-10 ms-2">
       <div className="text-2xl text-blue-300 my-7">Media</div>
       <div className="">
         <span
@@ -92,10 +92,14 @@ const MovieMedia = () => {
       <div
         className={
           video
-            ? "max-w-[60em] mt-4 bg-black h-[24em] overflow-x-auto flex gap-5 p-2"
+            ? "max-w-[60em] mt-4 bg-black overflow-x-auto flex gap-5 p-3"
             : "hidden"
         }
       >
+        {movieVideos.results && movieVideos.results.length == 0 && (
+          <div>No video have been added.</div>
+        )}
+
         {movieVideos.results &&
           movieVideos.results.map((movie, index) => (
             <YouTube

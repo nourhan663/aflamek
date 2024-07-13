@@ -15,7 +15,7 @@ const MovieCast = () => {
     );
   }
   return (
-    <div className="mt-8">
+    <div className="mt-8 ms-2">
       <div className="text-light-blue-300 font-bold text-2xl ">
         Top Billed Cast
       </div>

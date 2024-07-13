@@ -43,7 +43,7 @@ const SeriesDetail = () => {
 
   const opts = {
     height: "450",
-    width: "550",
+    width: "420",
   };
 
   const onReady = (event) => {
@@ -114,11 +114,12 @@ const SeriesDetail = () => {
         }}
       >
         {/* trailer */}
-        {showVideo && (
+        {showVideo &
+          (seriesVideos.results && seriesVideos.results.length != 0) && (
           <div
             className={
               showVideo
-                ? "absolute z-50 w-[100%] h-[100%] flex justify-center items-center bg-[rgba(0,0,0,.6)] "
+                ? "fixed z-50 w-[100%] h-[100%] flex justify-center items-center bg-[rgba(0,0,0,.6)] "
                 : "hidden"
             }
           >
@@ -154,7 +155,7 @@ const SeriesDetail = () => {
             </div>
 
             <div className="ms-7 text-white flex flex-col justify-evenly">
-              <h1 className=" font-bold text-3xl">{seriesDetails.title}</h1>
+              <h1 className=" font-bold text-3xl">{seriesDetails.name}</h1>
               <div>
                 <span>
                   {seriesDetails.first_air_date}(
@@ -280,7 +281,7 @@ const SeriesDetail = () => {
       <div className="container m-auto flex lg:flex-col xl:flex-row md:flex-col sm:flex-col flex-col justify-between">
         <div>
           <SeriesCast />
-          <SeriesReview />
+          <SeriesReview seriesDetails={seriesDetails} />
           <SeriesMedia />
           <SeriesRecommendation />
         </div>

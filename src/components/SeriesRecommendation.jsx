@@ -18,9 +18,9 @@ const SeriesRecommendation = () => {
   }
 
   return (
-    <div className="mt-10">
+    <div className="mt-10 ms-2">
       <div className="text-2xl text-blue-300">RECOMMENDATIONS</div>
-      <div className="max-w-[60em] h-[60vh] bg-black flex gap-4 overflow-x-auto">
+      <div className="max-w-[60em] h-[65vh] bg-black flex gap-4 overflow-auto">
         {seriesRecommendations.results &&
           seriesRecommendations.results.map((series, index) => (
             <div
