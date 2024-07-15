@@ -251,6 +251,7 @@ const Header = () => {
                       <div
                         key={index}
                         className="border-2 border-light-blue-400 mb-2 rounded-lg p-3 cursor-pointer"
+                        onClick={() => navigate(`/movie/${movie.id}`)}
                       >
                         <h1>{movie.title}</h1>
                       </div>
